@@ -175,7 +175,7 @@ NOTES:
  */
 int bitAnd(int x, int y)
 {
-    return 2;
+    return ~(~x | ~y);
 }
 /*
  * getByte - Extract byte n from word x
@@ -187,7 +187,9 @@ int bitAnd(int x, int y)
  */
 int getByte(int x, int n)
 {
-    return 2;
+   int y = x >> (n << 3); 
+
+   return (y & 0xff);
 }
 /*
  * bang - Compute !x without using !
@@ -198,7 +200,9 @@ int getByte(int x, int n)
  */
 int bang(int x)
 {
-    return 2;
+   int y = ~(x | (~x + 1));
+
+   return (y >> 31) & 1;
 }
 /*
  * tmin - return minimum two's complement integer
@@ -208,7 +212,7 @@ int bang(int x)
  */
 int tmin(void)
 {
-    return 2;
+   return (1 << 31);
 }
 /*
  * negate - return -x
@@ -219,7 +223,7 @@ int tmin(void)
  */
 int negate(int x)
 {
-    return 2;
+   return (~x + 1);
 }
 /*
  * isPositive - return 1 if x > 0, return 0 otherwise
@@ -230,7 +234,9 @@ int negate(int x)
  */
 int isPositive(int x)
 {
-    return 2;
+   int y = ~x & (~x + 1);
+
+   return ((y >> 31) & 1);
 }
 /*
  * float_neg - Return bit-level equivalent of expression -f for
