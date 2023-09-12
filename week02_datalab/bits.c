@@ -251,6 +251,7 @@ int isPositive(int x)
  */
 unsigned float_neg(unsigned uf)
 {
+   //
     return 2;
 }
 /*
