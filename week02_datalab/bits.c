@@ -187,9 +187,9 @@ int bitAnd(int x, int y)
  */
 int getByte(int x, int n)
 {
-   int y = x >> (n << 3); 
-
-   return (y & 0xff);
+    int y = x >> (n << 3); 
+    
+    return (y & 0xff);
 }
 /*
  * bang - Compute !x without using !
@@ -200,9 +200,9 @@ int getByte(int x, int n)
  */
 int bang(int x)
 {
-   int y = ~(x | (~x + 1));
-
-   return (y >> 31) & 1;
+    int y = ~(x | (~x + 1));
+    
+    return (y >> 31) & 1;
 }
 /*
  * tmin - return minimum two's complement integer
@@ -212,7 +212,7 @@ int bang(int x)
  */
 int tmin(void)
 {
-   return (1 << 31);
+    return (1 << 31);
 }
 /*
  * negate - return -x
@@ -223,7 +223,7 @@ int tmin(void)
  */
 int negate(int x)
 {
-   return (~x + 1);
+    return (~x + 1);
 }
 /*
  * isPositive - return 1 if x > 0, return 0 otherwise
@@ -234,9 +234,9 @@ int negate(int x)
  */
 int isPositive(int x)
 {
-   int y = ~x & (~x + 1);
-
-   return ((y >> 31) & 1);
+    int y = ~x & (~x + 1);
+    
+    return ((y >> 31) & 1);
 }
 /*
  * float_neg - Return bit-level equivalent of expression -f for
@@ -251,8 +251,12 @@ int isPositive(int x)
  */
 unsigned float_neg(unsigned uf)
 {
-   //
-    return 2;
+    unsigned frac_mask = (1 << 23) - 1;
+    unsigned exp_mask = 0xff << 23;
+
+    if ((uf & exp_mask) == exp_mask && (uf & frac_mask))
+        return uf;
+    return (uf ^ (1 << 31));
 }
 /*
  * float_twice - Return bit-level equivalent of expression 2*f for
@@ -267,5 +271,16 @@ unsigned float_neg(unsigned uf)
  */
 unsigned float_twice(unsigned uf)
 {
-    return 2;
+    unsigned frac_mask = (1 << 23) - 1;
+    unsigned exp_mask = 0xff << 23;
+    unsigned exp = uf & exp_mask;
+    unsigned frac = uf & frac_mask;
+    unsigned sign = uf & (1 << 31);
+
+    if (exp == exp_mask)
+        return uf;
+    if (exp == 0)
+        return (sign | (frac << 1));
+    exp = exp + (1 << 23);
+    return (sign | exp | frac);
 }
