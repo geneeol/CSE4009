@@ -593,21 +593,21 @@ fprintf (FILE *__restrict __stream, const char *__restrict __fmt, ...)
   401231:	83 c0 01             	add    $0x1,%eax
   401234:	39 c8                	cmp    %ecx,%eax
   401236:	75 f5                	jne    40122d <phase_6+0x93>
-  401238:	48 89 54 74 20       	mov    %rdx,0x20(%rsp,%rsi,2)
+  401238:	48 89 54 74 20       	mov    %rdx,0x20(%rsp,%rsi,2) # 점프
   40123d:	48 83 c6 04          	add    $0x4,%rsi
-  401241:	48 83 fe 18          	cmp    $0x18,%rsi
-  401245:	74 14                	je     40125b <phase_6+0xc1> # 여기서 점프
+  401241:	48 83 fe 18          	cmp    $0x18,%rsi # 6번 루프 반복 (가장 바깥쪽)
+  401245:	74 14                	je     40125b <phase_6+0xc1> # 여기서 가장 바깥 반복문 탈출
   401247:	8b 0c 34             	mov    (%rsp,%rsi,1),%ecx # ecx에 7-x로 변형된 인자 차례로 들어감
   40124a:	b8 01 00 00 00       	mov    $0x1,%eax
   40124f:	ba f0 32 60 00       	mov    $0x6032f0,%edx
-  401254:	83 f9 01             	cmp    $0x1,%ecx
+  401254:	83 f9 01             	cmp    $0x1,%ecx # 두번째 안쪽 반복문
   401257:	7f d4                	jg     40122d <phase_6+0x93>
   401259:	eb dd                	jmp    401238 <phase_6+0x9e>
   40125b:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
   401260:	48 8d 44 24 20       	lea    0x20(%rsp),%rax
   401265:	48 8d 74 24 48       	lea    0x48(%rsp),%rsi
   40126a:	48 89 d9             	mov    %rbx,%rcx
-  40126d:	48 8b 50 08          	mov    0x8(%rax),%rdx
+  40126d:	48 8b 50 08          	mov    0x8(%rax),%rdx # 점프
   401271:	48 89 51 08          	mov    %rdx,0x8(%rcx)
   401275:	48 83 c0 08          	add    $0x8,%rax
   401279:	48 89 d1             	mov    %rdx,%rcx
