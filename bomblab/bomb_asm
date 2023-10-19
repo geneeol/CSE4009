@@ -559,27 +559,27 @@ fprintf (FILE *__restrict __stream, const char *__restrict __fmt, ...)
   4011be:	49 89 e4             	mov    %rsp,%r12
   4011c1:	49 89 e5             	mov    %rsp,%r13
   4011c4:	41 be 00 00 00 00    	mov    $0x0,%r14d
-  4011ca:	4c 89 ed             	mov    %r13,%rbp
+  4011ca:	4c 89 ed             	mov    %r13,%rbp # 바깥쪽 반복문
   4011cd:	41 8b 45 00          	mov    0x0(%r13),%eax
   4011d1:	83 e8 01             	sub    $0x1,%eax
-  4011d4:	83 f8 05             	cmp    $0x5,%eax
+  4011d4:	83 f8 05             	cmp    $0x5,%eax # 모든 변수 6이하 
   4011d7:	76 05                	jbe    4011de <phase_6+0x44>
   4011d9:	e8 11 03 00 00       	call   4014ef <explode_bomb>
   4011de:	41 83 c6 01          	add    $0x1,%r14d
   4011e2:	41 83 fe 06          	cmp    $0x6,%r14d
   4011e6:	74 21                	je     401209 <phase_6+0x6f>
   4011e8:	44 89 f3             	mov    %r14d,%ebx
-  4011eb:	48 63 c3             	movslq %ebx,%rax
+  4011eb:	48 63 c3             	movslq %ebx,%rax # 안쪽 반복문
   4011ee:	8b 04 84             	mov    (%rsp,%rax,4),%eax
   4011f1:	39 45 00             	cmp    %eax,0x0(%rbp)
   4011f4:	75 05                	jne    4011fb <phase_6+0x61>
   4011f6:	e8 f4 02 00 00       	call   4014ef <explode_bomb>
   4011fb:	83 c3 01             	add    $0x1,%ebx
-  4011fe:	83 fb 05             	cmp    $0x5,%ebx
+  4011fe:	83 fb 05             	cmp    $0x5,%ebx # 이중 반복문 조건2
   401201:	7e e8                	jle    4011eb <phase_6+0x51>
   401203:	49 83 c5 04          	add    $0x4,%r13
-  401207:	eb c1                	jmp    4011ca <phase_6+0x30>
-  401209:	48 8d 4c 24 18       	lea    0x18(%rsp),%rcx
+  401207:	eb c1                	jmp    4011ca <phase_6+0x3 # 이중반복문 조건1
+  401209:	48 8d 4c 24 18       	lea    0x18(%rsp),%rcx # 반복문 탈출
   40120e:	ba 07 00 00 00       	mov    $0x7,%edx
   401213:	89 d0                	mov    %edx,%eax
   401215:	41 2b 04 24          	sub    (%r12),%eax
@@ -596,8 +596,8 @@ fprintf (FILE *__restrict __stream, const char *__restrict __fmt, ...)
   401238:	48 89 54 74 20       	mov    %rdx,0x20(%rsp,%rsi,2)
   40123d:	48 83 c6 04          	add    $0x4,%rsi
   401241:	48 83 fe 18          	cmp    $0x18,%rsi
-  401245:	74 14                	je     40125b <phase_6+0xc1>
-  401247:	8b 0c 34             	mov    (%rsp,%rsi,1),%ecx
+  401245:	74 14                	je     40125b <phase_6+0xc1> # 여기서 점프
+  401247:	8b 0c 34             	mov    (%rsp,%rsi,1),%ecx # ecx에 7-x로 변형된 인자 차례로 들어감
   40124a:	b8 01 00 00 00       	mov    $0x1,%eax
   40124f:	ba f0 32 60 00       	mov    $0x6032f0,%edx
   401254:	83 f9 01             	cmp    $0x1,%ecx
