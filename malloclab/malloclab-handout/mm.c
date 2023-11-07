@@ -54,6 +54,7 @@ team_t team = {
 #define OVERHEAD    8       /* overhead of header and footer (bytes) */
 
 #define MAX(x, y) ((x) > (y)? (x) : (y))  
+#define MIN(x, y) ((x) < (y)? (x) : (y))
 
 /* Pack a size and allocated bit into a word */
 #define PACK(size, alloc)  ((size) | (alloc))
@@ -73,6 +74,10 @@ team_t team = {
 /* Given block ptr bp, compute address of next and previous blocks */
 #define NEXT_BLKP(bp)  ((char *)(bp) + GET_SIZE(((char *)(bp) - WSIZE)))
 #define PREV_BLKP(bp)  ((char *)(bp) - GET_SIZE(((char *)(bp) - DSIZE)))
+
+/* Align block size as 8*/
+#define ALIGN(size) (((size) + 7) & ~0x7)
+#define MIN_BLOCK_SIZE 8
 /* $end mallocmacros */
 
 /* Global variables */
@@ -80,6 +85,12 @@ static char *heap_listp;  /* pointer to first block */
 #ifdef NEXT_FIT
 static char *rover;       /* next fit rover */
 #endif
+
+enum
+{
+    next_alloc_mask = 1,
+    prev_alloc_mask = 2,
+};
 
 /* function prototypes for internal helper routines */
 static void *extend_heap(size_t words);
@@ -110,7 +121,7 @@ int mm_init(void)
 
     /* Extend the empty heap with a free block of CHUNKSIZE bytes */
     if (extend_heap(CHUNKSIZE/WSIZE) == NULL)
-	return -1;
+	    return -1;
     return 0;
 }
 /* $end mminit */
@@ -122,6 +133,18 @@ int mm_init(void)
 void *mm_malloc(size_t size) 
 {
 	//TODO
+    if (size == 0) // 제거해도 괜찮을듯.
+        return NULL;
+    size_t aligned_size = MAX(ALIGN(size) + DSIZE, MIN_BLOCK_SIZE); // MINBLOCKSIZE 예외처리
+    void *bp = find_fit(aligned_size);
+    if (bp == NULL) 
+    {
+        if (extend_heap(aligned_size) == NULL)
+            return NULL;
+        bp = find_fit(aligned_size);
+    }
+    place(bp, aligned_size);
+    return bp;
 } 
 /* $end mmmalloc */
 
@@ -132,6 +155,11 @@ void *mm_malloc(size_t size)
 void mm_free(void *bp)
 {
 	//TODO
+    if (bp)
+    {
+        PUT(HDRP(bp), PACK(GET_SIZE(HDRP(bp)), 0));
+        coalesce(bp);
+    }
 }
 
 /* $end mmfree */
@@ -141,7 +169,40 @@ void mm_free(void *bp)
  */
 void *mm_realloc(void *ptr, size_t size)
 {
-	//TODO 
+    void *bp;
+    void *prev_header;
+    void *next_header;
+    int alloc_flag = 0;
+    size_t aligned_size = MAX(ALIGN(size) + DSIZE, MIN_BLOCK_SIZE);
+    size_t curr_sz;
+    size_t prev_sz;
+    size_t next_sz;
+
+    if (size == 0)
+        return NULL;
+    if (ptr == NULL)
+    {
+        bp = mm_malloc(size);
+        return bp;
+    }
+    prev_header = HDRP(PREV_BLKP(ptr));
+    next_header = HDRP(NEXT_BLKP(ptr));
+    alloc_flag = GET_ALLOC(prev_header) << 1 | GET_ALLOC(next_header);
+    curr_sz = GET_SIZE(HDRP(ptr));
+    prev_sz = GET_SIZE(prev_header);
+    next_sz = GET_SIZE(next_header);
+    if (curr_sz >= aligned_size)
+    {
+        place(ptr, aligned_size);
+        return ptr;
+    }
+    bp = mm_malloc(size);
+    if (bp == NULL)
+        return NULL;
+    // if ((alloc_flag & prev_alloc_mask) && (alloc_flag & next_alloc_mask))
+    memcpy(bp, ptr, MIN(size, GET_SIZE(HDRP(ptr))));
+    mm_free(ptr);
+    return bp;
 }
 
 /* 
