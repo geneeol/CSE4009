@@ -86,12 +86,6 @@ static char *heap_listp;  /* pointer to first block */
 static char *rover;       /* next fit rover */
 #endif
 
-enum
-{
-    next_alloc_mask = 1,
-    prev_alloc_mask = 2,
-};
-
 /* function prototypes for internal helper routines */
 static void *extend_heap(size_t words);
 static void place(void *bp, size_t asize);
@@ -171,25 +165,15 @@ void mm_free(void *bp)
 void *mm_realloc(void *ptr, size_t size)
 {
     void *bp;
-    void *prev_header;
-    void *next_header;
-    int alloc_flag = 0;
     size_t aligned_size = MAX(ALIGN(size) + DSIZE, MIN_BLOCK_SIZE);
     size_t curr_sz;
-    // size_t prev_sz;
-    // size_t next_sz;
 
     if (ptr == NULL || size == 0)
     {
         bp = mm_malloc(size);
         return bp;
     }
-    // prev_header = HDRP(PREV_BLKP(ptr));
-    // next_header = HDRP(NEXT_BLKP(ptr));
-    // alloc_flag = GET_ALLOC(prev_header) << 1 | GET_ALLOC(next_header);
     curr_sz = GET_SIZE(HDRP(ptr));
-    // prev_sz = GET_SIZE(prev_header);
-    // next_sz = GET_SIZE(next_header);
     if (curr_sz >= aligned_size)
     {
         place(ptr, aligned_size);
@@ -203,7 +187,6 @@ void *mm_realloc(void *ptr, size_t size)
         mm_free(ptr);
         return bp;
     }
-    // if ((alloc_flag & prev_alloc_mask) && (alloc_flag & next_alloc_mask))
     memmove(bp, ptr, MIN(size, curr_sz));
     return bp;
 }
@@ -383,7 +366,7 @@ static void *coalesce2(void *bp)
         PUT(HDRP(PREV_BLKP(bp)), PACK(size, 1));
         bp = PREV_BLKP(bp);
     }
-    else /* Case 4 */
+    else                                /* Case 4 */
     {
         size += GET_SIZE(HDRP(PREV_BLKP(bp))) + GET_SIZE(FTRP(NEXT_BLKP(bp)));
         PUT(HDRP(PREV_BLKP(bp)), PACK(size, 1));
