@@ -97,6 +97,7 @@ static void *extend_heap(size_t words);
 static void place(void *bp, size_t asize);
 static void *find_fit(size_t asize);
 static void *coalesce(void *bp);
+static void *coalesce2(void *bp);
 static void printblock(void *bp); 
 static void checkblock(void *bp);
 
@@ -175,33 +176,35 @@ void *mm_realloc(void *ptr, size_t size)
     int alloc_flag = 0;
     size_t aligned_size = MAX(ALIGN(size) + DSIZE, MIN_BLOCK_SIZE);
     size_t curr_sz;
-    size_t prev_sz;
-    size_t next_sz;
+    // size_t prev_sz;
+    // size_t next_sz;
 
-    if (size == 0)
-        return NULL;
-    if (ptr == NULL)
+    if (ptr == NULL || size == 0)
     {
         bp = mm_malloc(size);
         return bp;
     }
-    prev_header = HDRP(PREV_BLKP(ptr));
-    next_header = HDRP(NEXT_BLKP(ptr));
-    alloc_flag = GET_ALLOC(prev_header) << 1 | GET_ALLOC(next_header);
+    // prev_header = HDRP(PREV_BLKP(ptr));
+    // next_header = HDRP(NEXT_BLKP(ptr));
+    // alloc_flag = GET_ALLOC(prev_header) << 1 | GET_ALLOC(next_header);
     curr_sz = GET_SIZE(HDRP(ptr));
-    prev_sz = GET_SIZE(prev_header);
-    next_sz = GET_SIZE(next_header);
+    // prev_sz = GET_SIZE(prev_header);
+    // next_sz = GET_SIZE(next_header);
     if (curr_sz >= aligned_size)
     {
         place(ptr, aligned_size);
         return ptr;
     }
-    bp = mm_malloc(size);
+    bp = coalesce2(ptr);
     if (bp == NULL)
-        return NULL;
+    {
+        bp = mm_malloc(size);
+        memcpy(bp, ptr, MIN(size, curr_sz));
+        mm_free(ptr);
+        return bp;
+    }
     // if ((alloc_flag & prev_alloc_mask) && (alloc_flag & next_alloc_mask))
-    memcpy(bp, ptr, MIN(size, GET_SIZE(HDRP(ptr))));
-    mm_free(ptr);
+    memmove(bp, ptr, MIN(size, curr_sz));
     return bp;
 }
 
@@ -358,6 +361,46 @@ static void *coalesce(void *bp)
 
     return bp;
 }
+
+static void *coalesce2(void *bp) 
+{
+    size_t prev_alloc = GET_ALLOC(FTRP(PREV_BLKP(bp)));
+    size_t next_alloc = GET_ALLOC(HDRP(NEXT_BLKP(bp)));
+    size_t size = GET_SIZE(HDRP(bp));
+
+    if (prev_alloc && next_alloc)       /* Case 1 */
+        return NULL;
+    else if (prev_alloc && !next_alloc) /* Case 2 */
+    {
+        size += GET_SIZE(HDRP(NEXT_BLKP(bp)));
+        PUT(HDRP(bp), PACK(size, 1));
+        PUT(FTRP(bp), PACK(size, 1));
+    }
+    else if (!prev_alloc && next_alloc) /* Case 3 */
+    {
+        size += GET_SIZE(HDRP(PREV_BLKP(bp)));
+        PUT(FTRP(bp), PACK(size, 1));
+        PUT(HDRP(PREV_BLKP(bp)), PACK(size, 1));
+        bp = PREV_BLKP(bp);
+    }
+    else /* Case 4 */
+    {
+        size += GET_SIZE(HDRP(PREV_BLKP(bp))) + GET_SIZE(FTRP(NEXT_BLKP(bp)));
+        PUT(HDRP(PREV_BLKP(bp)), PACK(size, 1));
+        PUT(FTRP(NEXT_BLKP(bp)), PACK(size, 1));
+        bp = PREV_BLKP(bp);
+    }
+
+#ifdef NEXT_FIT
+    /* Make sure the rover isn't pointing into the free block */
+    /* that we just coalesced */
+    if ((rover > (char *)bp) && (rover < NEXT_BLKP(bp))) 
+	rover = bp;
+#endif
+
+    return bp;
+}
+
 
 
 static void printblock(void *bp) 
