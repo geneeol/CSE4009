@@ -1,6 +1,6 @@
 Comparing rtest01.txt and test01.txt:
---- rtest01.txt	2023-12-22 10:12:41.177281193 +0000
-+++ test01.txt	2023-12-22 10:13:42.761108040 +0000
+--- rtest01.txt	2023-12-22 11:18:53.951071612 +0000
++++ test01.txt	2023-12-22 11:55:47.007469892 +0000
 @@ -1,4 +1,4 @@
 -./sdriver.pl -t trace01.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace01.txt -s ./tsh -a "-p"
@@ -10,8 +10,8 @@ Comparing rtest01.txt and test01.txt:
 ----------------------------------------
 
 Comparing rtest02.txt and test02.txt:
---- rtest02.txt	2023-12-22 10:12:41.201281119 +0000
-+++ test02.txt	2023-12-22 10:13:42.817107875 +0000
+--- rtest02.txt	2023-12-22 11:18:53.971071523 +0000
++++ test02.txt	2023-12-22 11:55:47.031469804 +0000
 @@ -1,4 +1,4 @@
 -./sdriver.pl -t trace02.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace02.txt -s ./tsh -a "-p"
@@ -21,8 +21,8 @@ Comparing rtest02.txt and test02.txt:
 ----------------------------------------
 
 Comparing rtest03.txt and test03.txt:
---- rtest03.txt	2023-12-22 10:12:41.225281045 +0000
-+++ test03.txt	2023-12-22 10:13:42.845107793 +0000
+--- rtest03.txt	2023-12-22 11:18:53.995071416 +0000
++++ test03.txt	2023-12-22 11:55:47.063469686 +0000
 @@ -1,4 +1,4 @@
 -./sdriver.pl -t trace03.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace03.txt -s ./tsh -a "-p"
@@ -32,8 +32,8 @@ Comparing rtest03.txt and test03.txt:
 ----------------------------------------
 
 Comparing rtest04.txt and test04.txt:
---- rtest04.txt	2023-12-22 10:12:42.253277904 +0000
-+++ test04.txt	2023-12-22 10:13:43.893104674 +0000
+--- rtest04.txt	2023-12-22 11:18:55.039066780 +0000
++++ test04.txt	2023-12-22 11:55:48.091465931 +0000
 @@ -1,6 +1,6 @@
 -./sdriver.pl -t trace04.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace04.txt -s ./tsh -a "-p"
@@ -41,13 +41,13 @@ Comparing rtest04.txt and test04.txt:
  # trace04.txt - Run a background job.
  #
  tsh> ./myspin 1 &
--[1] (39962) ./myspin 1 &
-+[1] (40222) ./myspin 1 &
+-[1] (43603) ./myspin 1 &
++[1] (48821) ./myspin 1 &
 ----------------------------------------
 
 Comparing rtest05.txt and test05.txt:
---- rtest05.txt	2023-12-22 10:12:45.285271469 +0000
-+++ test05.txt	2023-12-22 10:13:46.921095665 +0000
+--- rtest05.txt	2023-12-22 11:18:58.071053304 +0000
++++ test05.txt	2023-12-22 11:55:51.123454861 +0000
 @@ -1,11 +1,11 @@
 -./sdriver.pl -t trace05.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace05.txt -s ./tsh -a "-p"
@@ -55,21 +55,21 @@ Comparing rtest05.txt and test05.txt:
  # trace05.txt - Process jobs builtin command.
  #
  tsh> ./myspin 2 &
--[1] (39982) ./myspin 2 &
-+[1] (40228) ./myspin 2 &
+-[1] (43623) ./myspin 2 &
++[1] (48841) ./myspin 2 &
  tsh> ./myspin 3 &
--[2] (39984) ./myspin 3 &
-+[2] (40230) ./myspin 3 &
+-[2] (43625) ./myspin 3 &
++[2] (48843) ./myspin 3 &
  tsh> jobs
--[1] (39982) Running ./myspin 2 &
--[2] (39984) Running ./myspin 3 &
-+[1] (40228) Running ./myspin 2 &
-+[2] (40230) Running ./myspin 3 &
+-[1] (43623) Running ./myspin 2 &
+-[2] (43625) Running ./myspin 3 &
++[1] (48841) Running ./myspin 2 &
++[2] (48843) Running ./myspin 3 &
 ----------------------------------------
 
 Comparing rtest06.txt and test06.txt:
---- rtest06.txt	2023-12-22 10:12:47.317267384 +0000
-+++ test06.txt	2023-12-22 10:13:48.953089615 +0000
+--- rtest06.txt	2023-12-22 11:19:00.099044290 +0000
++++ test06.txt	2023-12-22 11:55:53.147447471 +0000
 @@ -1,6 +1,6 @@
 -./sdriver.pl -t trace06.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace06.txt -s ./tsh -a "-p"
@@ -77,13 +77,13 @@ Comparing rtest06.txt and test06.txt:
  # trace06.txt - Forward SIGINT to foreground job.
  #
  tsh> ./myspin 4
--Job [1] (40004) terminated by signal 2
-+Job [1] (40267) terminated by signal 2
+-Job [1] (43668) terminated by signal 2
++Job [1] (48874) terminated by signal 2
 ----------------------------------------
 
 Comparing rtest07.txt and test07.txt:
---- rtest07.txt	2023-12-22 10:12:51.341259294 +0000
-+++ test07.txt	2023-12-22 10:13:52.981077618 +0000
+--- rtest07.txt	2023-12-22 11:19:04.123026261 +0000
++++ test07.txt	2023-12-22 11:55:57.179432719 +0000
 @@ -1,10 +1,10 @@
 -./sdriver.pl -t trace07.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace07.txt -s ./tsh -a "-p"
@@ -91,19 +91,19 @@ Comparing rtest07.txt and test07.txt:
  # trace07.txt - Forward SIGINT only to foreground job.
  #
  tsh> ./myspin 4 &
--[1] (40025) ./myspin 4 &
-+[1] (40273) ./myspin 4 &
+-[1] (43674) ./myspin 4 &
++[1] (48904) ./myspin 4 &
  tsh> ./myspin 5
--Job [2] (40027) terminated by signal 2
-+Job [2] (40275) terminated by signal 2
+-Job [2] (43676) terminated by signal 2
++Job [2] (48907) terminated by signal 2
  tsh> jobs
--[1] (40025) Running ./myspin 4 &
-+[1] (40273) Running ./myspin 4 &
+-[1] (43674) Running ./myspin 4 &
++[1] (48904) Running ./myspin 4 &
 ----------------------------------------
 
 Comparing rtest08.txt and test08.txt:
---- rtest08.txt	2023-12-22 10:12:55.369250585 +0000
-+++ test08.txt	2023-12-22 10:13:57.017065596 +0000
+--- rtest08.txt	2023-12-22 11:19:08.167008029 +0000
++++ test08.txt	2023-12-22 11:56:01.207417892 +0000
 @@ -1,11 +1,11 @@
 -./sdriver.pl -t trace08.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace08.txt -s ./tsh -a "-p"
@@ -111,21 +111,21 @@ Comparing rtest08.txt and test08.txt:
  # trace08.txt - Forward SIGTSTP only to foreground job.
  #
  tsh> ./myspin 4 &
--[1] (40047) ./myspin 4 &
-+[1] (40285) ./myspin 4 &
+-[1] (43686) ./myspin 4 &
++[1] (48929) ./myspin 4 &
  tsh> ./myspin 5
--Job [2] (40049) stopped by signal 20
-+Job [2] (40287) stopped by signal 20
+-Job [2] (43688) stopped by signal 20
++Job [2] (48931) stopped by signal 20
  tsh> jobs
--[1] (40047) Running ./myspin 4 &
--[2] (40049) Stopped ./myspin 5 
-+[1] (40285) Running ./myspin 4 &
-+[2] (40287) Stopped ./myspin 5 
+-[1] (43686) Running ./myspin 4 &
+-[2] (43688) Stopped ./myspin 5 
++[1] (48929) Running ./myspin 4 &
++[2] (48931) Stopped ./myspin 5 
 ----------------------------------------
 
 Comparing rtest09.txt and test09.txt:
---- rtest09.txt	2023-12-22 10:13:00.433235213 +0000
-+++ test09.txt	2023-12-22 10:14:02.049050606 +0000
+--- rtest09.txt	2023-12-22 11:19:13.194985376 +0000
++++ test09.txt	2023-12-22 11:56:06.251399327 +0000
 @@ -1,16 +1,16 @@
 -./sdriver.pl -t trace09.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace09.txt -s ./tsh -a "-p"
@@ -133,29 +133,29 @@ Comparing rtest09.txt and test09.txt:
  # trace09.txt - Process bg builtin command
  #
  tsh> ./myspin 4 &
--[1] (40059) ./myspin 4 &
-+[1] (40297) ./myspin 4 &
+-[1] (43698) ./myspin 4 &
++[1] (48965) ./myspin 4 &
  tsh> ./myspin 5
--Job [2] (40061) stopped by signal 20
-+Job [2] (40299) stopped by signal 20
+-Job [2] (43700) stopped by signal 20
++Job [2] (48967) stopped by signal 20
  tsh> jobs
--[1] (40059) Running ./myspin 4 &
--[2] (40061) Stopped ./myspin 5 
-+[1] (40297) Running ./myspin 4 &
-+[2] (40299) Stopped ./myspin 5 
+-[1] (43698) Running ./myspin 4 &
+-[2] (43700) Stopped ./myspin 5 
++[1] (48965) Running ./myspin 4 &
++[2] (48967) Stopped ./myspin 5 
  tsh> bg %2
--[2] (40061) ./myspin 5 
-+[2] (40299) ./myspin 5 
+-[2] (43700) ./myspin 5 
++[2] (48967) ./myspin 5 
  tsh> jobs
--[1] (40059) Running ./myspin 4 &
--[2] (40061) Running ./myspin 5 
-+[1] (40297) Running ./myspin 4 &
-+[2] (40299) Running ./myspin 5 
+-[1] (43698) Running ./myspin 4 &
+-[2] (43700) Running ./myspin 5 
++[1] (48965) Running ./myspin 4 &
++[2] (48967) Running ./myspin 5 
 ----------------------------------------
 
 Comparing rtest10.txt and test10.txt:
---- rtest10.txt	2023-12-22 10:13:04.465223036 +0000
-+++ test10.txt	2023-12-22 10:14:06.085039149 +0000
+--- rtest10.txt	2023-12-22 11:19:17.218967249 +0000
++++ test10.txt	2023-12-22 11:56:10.283384488 +0000
 @@ -1,12 +1,12 @@
 -./sdriver.pl -t trace10.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace10.txt -s ./tsh -a "-p"
@@ -163,21 +163,21 @@ Comparing rtest10.txt and test10.txt:
  # trace10.txt - Process fg builtin command. 
  #
  tsh> ./myspin 4 &
--[1] (40073) ./myspin 4 &
-+[1] (40311) ./myspin 4 &
+-[1] (43712) ./myspin 4 &
++[1] (48999) ./myspin 4 &
  tsh> fg %1
--Job [1] (40073) stopped by signal 20
-+Job [1] (40311) stopped by signal 20
+-Job [1] (43712) stopped by signal 20
++Job [1] (48999) stopped by signal 20
  tsh> jobs
--[1] (40073) Stopped ./myspin 4 &
-+[1] (40311) Stopped ./myspin 4 &
+-[1] (43712) Stopped ./myspin 4 &
++[1] (48999) Stopped ./myspin 4 &
  tsh> fg %1
  tsh> jobs
 ----------------------------------------
 
 Comparing rtest11.txt and test11.txt:
---- rtest11.txt	2023-12-22 10:13:06.501216888 +0000
-+++ test11.txt	2023-12-22 10:14:08.129033564 +0000
+--- rtest11.txt	2023-12-22 11:19:19.250958301 +0000
++++ test11.txt	2023-12-22 11:56:12.315377011 +0000
 @@ -1,9 +1,9 @@
 -./sdriver.pl -t trace11.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace11.txt -s ./tsh -a "-p"
@@ -185,32 +185,32 @@ Comparing rtest11.txt and test11.txt:
  # trace11.txt - Forward SIGINT to every process in foreground process group
  #
  tsh> ./mysplit 4
--Job [1] (40083) terminated by signal 2
-+Job [1] (40324) terminated by signal 2
+-Job [1] (43725) terminated by signal 2
++Job [1] (49024) terminated by signal 2
  tsh> /bin/ps a
      PID TTY      STAT   TIME COMMAND
      391 ttyS0    Ss+    0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 ttyS0 vt220
 @@ -11,9 +11,9 @@
    29857 pts/0    Ss+    0:00 -bash
    29912 pts/1    Ss+    0:00 -bash
-   30389 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
--  39942 pts/2    S+     0:00 sh gen_rtest.sh
--  40078 pts/2    S+     0:00 make rtest11
--  40079 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace11.txt -s ./tshref -a "-p"
--  40080 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace11.txt -s ./tshref -a -p
--  40081 pts/2    S+     0:00 ./tshref -p
--  40089 pts/2    R      0:00 /bin/ps a
-+  40202 pts/2    S+     0:00 sh gen_test.sh
-+  40319 pts/2    S+     0:00 make test11
-+  40320 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace11.txt -s ./tsh -a "-p"
-+  40321 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace11.txt -s ./tsh -a -p
-+  40322 pts/2    S+     0:00 ./tsh -p
-+  40327 pts/2    R      0:00 /bin/ps a
+   42807 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
+-  43583 pts/2    S+     0:00 sh gen_rtest.sh
+-  43720 pts/2    S+     0:00 make rtest11
+-  43721 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace11.txt -s ./tshref -a "-p"
+-  43722 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace11.txt -s ./tshref -a -p
+-  43723 pts/2    S+     0:00 ./tshref -p
+-  43728 pts/2    R      0:00 /bin/ps a
++  48801 pts/2    S+     0:00 sh gen_test.sh
++  49019 pts/2    S+     0:00 make test11
++  49020 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace11.txt -s ./tsh -a "-p"
++  49021 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace11.txt -s ./tsh -a -p
++  49022 pts/2    S+     0:00 ./tsh -p
++  49033 pts/2    R      0:00 /bin/ps a
 ----------------------------------------
 
 Comparing rtest12.txt and test12.txt:
---- rtest12.txt	2023-12-22 10:13:08.573210628 +0000
-+++ test12.txt	2023-12-22 10:14:10.165028005 +0000
+--- rtest12.txt	2023-12-22 11:19:21.294949402 +0000
++++ test12.txt	2023-12-22 11:56:14.383369400 +0000
 @@ -1,11 +1,11 @@
 -./sdriver.pl -t trace12.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace12.txt -s ./tsh -a "-p"
@@ -218,39 +218,39 @@ Comparing rtest12.txt and test12.txt:
  # trace12.txt - Forward SIGTSTP to every process in foreground process group
  #
  tsh> ./mysplit 4
--Job [1] (40095) stopped by signal 20
-+Job [1] (40333) stopped by signal 20
+-Job [1] (43734) stopped by signal 20
++Job [1] (49039) stopped by signal 20
  tsh> jobs
--[1] (40095) Stopped ./mysplit 4 
-+[1] (40333) Stopped ./mysplit 4 
+-[1] (43734) Stopped ./mysplit 4 
++[1] (49039) Stopped ./mysplit 4 
  tsh> /bin/ps a
      PID TTY      STAT   TIME COMMAND
      391 ttyS0    Ss+    0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 ttyS0 vt220
 @@ -13,11 +13,11 @@
    29857 pts/0    Ss+    0:00 -bash
    29912 pts/1    Ss+    0:00 -bash
-   30389 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
--  39942 pts/2    S+     0:00 sh gen_rtest.sh
--  40090 pts/2    S+     0:00 make rtest12
--  40091 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace12.txt -s ./tshref -a "-p"
--  40092 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace12.txt -s ./tshref -a -p
--  40093 pts/2    S+     0:00 ./tshref -p
--  40095 pts/2    T      0:00 ./mysplit 4
--  40096 pts/2    T      0:00 ./mysplit 4
--  40099 pts/2    R      0:00 /bin/ps a
-+  40202 pts/2    S+     0:00 sh gen_test.sh
-+  40328 pts/2    S+     0:00 make test12
-+  40329 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace12.txt -s ./tsh -a "-p"
-+  40330 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace12.txt -s ./tsh -a -p
-+  40331 pts/2    S+     0:00 ./tsh -p
-+  40333 pts/2    T      0:00 ./mysplit 4
-+  40334 pts/2    T      0:00 ./mysplit 4
-+  40337 pts/2    R      0:00 /bin/ps a
+   42807 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
+-  43583 pts/2    S+     0:00 sh gen_rtest.sh
+-  43729 pts/2    S+     0:00 make rtest12
+-  43730 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace12.txt -s ./tshref -a "-p"
+-  43731 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace12.txt -s ./tshref -a -p
+-  43732 pts/2    S+     0:00 ./tshref -p
+-  43734 pts/2    T      0:00 ./mysplit 4
+-  43735 pts/2    T      0:00 ./mysplit 4
+-  43738 pts/2    R      0:00 /bin/ps a
++  48801 pts/2    S+     0:00 sh gen_test.sh
++  49034 pts/2    S+     0:00 make test12
++  49035 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace12.txt -s ./tsh -a "-p"
++  49036 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace12.txt -s ./tsh -a -p
++  49037 pts/2    S+     0:00 ./tsh -p
++  49039 pts/2    T      0:00 ./mysplit 4
++  49040 pts/2    T      0:00 ./mysplit 4
++  49054 pts/2    R      0:00 /bin/ps a
 ----------------------------------------
 
 Comparing rtest13.txt and test13.txt:
---- rtest13.txt	2023-12-22 10:13:12.633198366 +0000
-+++ test13.txt	2023-12-22 10:14:14.221016925 +0000
+--- rtest13.txt	2023-12-22 11:19:25.350931743 +0000
++++ test13.txt	2023-12-22 11:56:18.435354483 +0000
 @@ -1,11 +1,11 @@
 -./sdriver.pl -t trace13.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace13.txt -s ./tsh -a "-p"
@@ -258,58 +258,58 @@ Comparing rtest13.txt and test13.txt:
  # trace13.txt - Restart every stopped process in process group
  #
  tsh> ./mysplit 4
--Job [1] (40105) stopped by signal 20
-+Job [1] (40343) stopped by signal 20
+-Job [1] (43744) stopped by signal 20
++Job [1] (49060) stopped by signal 20
  tsh> jobs
--[1] (40105) Stopped ./mysplit 4 
-+[1] (40343) Stopped ./mysplit 4 
+-[1] (43744) Stopped ./mysplit 4 
++[1] (49060) Stopped ./mysplit 4 
  tsh> /bin/ps a
      PID TTY      STAT   TIME COMMAND
      391 ttyS0    Ss+    0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 ttyS0 vt220
 @@ -13,14 +13,14 @@
    29857 pts/0    Ss+    0:00 -bash
    29912 pts/1    Ss+    0:00 -bash
-   30389 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
--  39942 pts/2    S+     0:00 sh gen_rtest.sh
--  40100 pts/2    S+     0:00 make rtest13
--  40101 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tshref -a "-p"
--  40102 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tshref -a -p
--  40103 pts/2    S+     0:00 ./tshref -p
--  40105 pts/2    T      0:00 ./mysplit 4
--  40106 pts/2    T      0:00 ./mysplit 4
--  40112 pts/2    R      0:00 /bin/ps a
-+  40202 pts/2    S+     0:00 sh gen_test.sh
-+  40338 pts/2    S+     0:00 make test13
-+  40339 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tsh -a "-p"
-+  40340 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tsh -a -p
-+  40341 pts/2    S+     0:00 ./tsh -p
-+  40343 pts/2    T      0:00 ./mysplit 4
-+  40344 pts/2    T      0:00 ./mysplit 4
-+  40350 pts/2    R      0:00 /bin/ps a
+   42807 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
+-  43583 pts/2    S+     0:00 sh gen_rtest.sh
+-  43739 pts/2    S+     0:00 make rtest13
+-  43740 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tshref -a "-p"
+-  43741 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tshref -a -p
+-  43742 pts/2    S+     0:00 ./tshref -p
+-  43744 pts/2    T      0:00 ./mysplit 4
+-  43745 pts/2    T      0:00 ./mysplit 4
+-  43751 pts/2    R      0:00 /bin/ps a
++  48801 pts/2    S+     0:00 sh gen_test.sh
++  49055 pts/2    S+     0:00 make test13
++  49056 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tsh -a "-p"
++  49057 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tsh -a -p
++  49058 pts/2    S+     0:00 ./tsh -p
++  49060 pts/2    T      0:00 ./mysplit 4
++  49061 pts/2    T      0:00 ./mysplit 4
++  49073 pts/2    R      0:00 /bin/ps a
  tsh> fg %1
  tsh> /bin/ps a
      PID TTY      STAT   TIME COMMAND
 @@ -29,9 +29,9 @@
    29857 pts/0    Ss+    0:00 -bash
    29912 pts/1    Ss+    0:00 -bash
-   30389 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
--  39942 pts/2    S+     0:00 sh gen_rtest.sh
--  40100 pts/2    S+     0:00 make rtest13
--  40101 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tshref -a "-p"
--  40102 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tshref -a -p
--  40103 pts/2    S+     0:00 ./tshref -p
--  40115 pts/2    R      0:00 /bin/ps a
-+  40202 pts/2    S+     0:00 sh gen_test.sh
-+  40338 pts/2    S+     0:00 make test13
-+  40339 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tsh -a "-p"
-+  40340 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tsh -a -p
-+  40341 pts/2    S+     0:02 ./tsh -p
-+  40353 pts/2    R      0:00 /bin/ps a
+   42807 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
+-  43583 pts/2    S+     0:00 sh gen_rtest.sh
+-  43739 pts/2    S+     0:00 make rtest13
+-  43740 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tshref -a "-p"
+-  43741 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tshref -a -p
+-  43742 pts/2    S+     0:00 ./tshref -p
+-  43754 pts/2    R      0:00 /bin/ps a
++  48801 pts/2    S+     0:00 sh gen_test.sh
++  49055 pts/2    S+     0:00 make test13
++  49056 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tsh -a "-p"
++  49057 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tsh -a -p
++  49058 pts/2    S+     0:02 ./tsh -p
++  49082 pts/2    R      0:00 /bin/ps a
 ----------------------------------------
 
 Comparing rtest14.txt and test14.txt:
---- rtest14.txt	2023-12-22 10:13:16.677186172 +0000
-+++ test14.txt	2023-12-22 10:14:18.261005893 +0000
+--- rtest14.txt	2023-12-22 11:19:29.406914081 +0000
++++ test14.txt	2023-12-22 11:56:22.471339631 +0000
 @@ -1,11 +1,11 @@
 -./sdriver.pl -t trace14.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace14.txt -s ./tsh -a "-p"
@@ -319,8 +319,8 @@ Comparing rtest14.txt and test14.txt:
  tsh> ./bogus
  ./bogus: Command not found
  tsh> ./myspin 4 &
--[1] (40123) ./myspin 4 &
-+[1] (40361) ./myspin 4 &
+-[1] (43762) ./myspin 4 &
++[1] (49090) ./myspin 4 &
  tsh> fg
  fg command requires PID or %jobid argument
  tsh> bg
@@ -328,21 +328,21 @@ Comparing rtest14.txt and test14.txt:
  tsh> fg %2
  %2: No such job
  tsh> fg %1
--Job [1] (40123) stopped by signal 20
-+Job [1] (40361) stopped by signal 20
+-Job [1] (43762) stopped by signal 20
++Job [1] (49090) stopped by signal 20
  tsh> bg %2
  %2: No such job
  tsh> bg %1
--[1] (40123) ./myspin 4 &
-+[1] (40361) ./myspin 4 &
+-[1] (43762) ./myspin 4 &
++[1] (49090) ./myspin 4 &
  tsh> jobs
--[1] (40123) Running ./myspin 4 &
-+[1] (40361) Running ./myspin 4 &
+-[1] (43762) Running ./myspin 4 &
++[1] (49090) Running ./myspin 4 &
 ----------------------------------------
 
 Comparing rtest15.txt and test15.txt:
---- rtest15.txt	2023-12-22 10:13:22.701168034 +0000
-+++ test15.txt	2023-12-22 10:14:24.296991437 +0000
+--- rtest15.txt	2023-12-22 11:19:35.430887876 +0000
++++ test15.txt	2023-12-22 11:56:28.495317458 +0000
 @@ -1,29 +1,29 @@
 -./sdriver.pl -t trace15.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace15.txt -s ./tsh -a "-p"
@@ -352,44 +352,44 @@ Comparing rtest15.txt and test15.txt:
  tsh> ./bogus
  ./bogus: Command not found
  tsh> ./myspin 10
--Job [1] (40145) terminated by signal 2
-+Job [1] (40383) terminated by signal 2
+-Job [1] (43784) terminated by signal 2
++Job [1] (49124) terminated by signal 2
  tsh> ./myspin 3 &
--[1] (40147) ./myspin 3 &
-+[1] (40385) ./myspin 3 &
+-[1] (43786) ./myspin 3 &
++[1] (49135) ./myspin 3 &
  tsh> ./myspin 4 &
--[2] (40149) ./myspin 4 &
-+[2] (40387) ./myspin 4 &
+-[2] (43788) ./myspin 4 &
++[2] (49137) ./myspin 4 &
  tsh> jobs
--[1] (40147) Running ./myspin 3 &
--[2] (40149) Running ./myspin 4 &
-+[1] (40385) Running ./myspin 3 &
-+[2] (40387) Running ./myspin 4 &
+-[1] (43786) Running ./myspin 3 &
+-[2] (43788) Running ./myspin 4 &
++[1] (49135) Running ./myspin 3 &
++[2] (49137) Running ./myspin 4 &
  tsh> fg %1
--Job [1] (40147) stopped by signal 20
-+Job [1] (40385) stopped by signal 20
+-Job [1] (43786) stopped by signal 20
++Job [1] (49135) stopped by signal 20
  tsh> jobs
--[1] (40147) Stopped ./myspin 3 &
--[2] (40149) Running ./myspin 4 &
-+[1] (40385) Stopped ./myspin 3 &
-+[2] (40387) Running ./myspin 4 &
+-[1] (43786) Stopped ./myspin 3 &
+-[2] (43788) Running ./myspin 4 &
++[1] (49135) Stopped ./myspin 3 &
++[2] (49137) Running ./myspin 4 &
  tsh> bg %3
  %3: No such job
  tsh> bg %1
--[1] (40147) ./myspin 3 &
-+[1] (40385) ./myspin 3 &
+-[1] (43786) ./myspin 3 &
++[1] (49135) ./myspin 3 &
  tsh> jobs
--[1] (40147) Running ./myspin 3 &
--[2] (40149) Running ./myspin 4 &
-+[1] (40385) Running ./myspin 3 &
-+[2] (40387) Running ./myspin 4 &
+-[1] (43786) Running ./myspin 3 &
+-[2] (43788) Running ./myspin 4 &
++[1] (49135) Running ./myspin 3 &
++[2] (49137) Running ./myspin 4 &
  tsh> fg %1
  tsh> quit
 ----------------------------------------
 
 Comparing rtest16.txt and test16.txt:
---- rtest16.txt	2023-12-22 10:13:27.741152855 +0000
-+++ test16.txt	2023-12-22 10:14:29.324980057 +0000
+--- rtest16.txt	2023-12-22 11:19:40.458866036 +0000
++++ test16.txt	2023-12-22 11:56:33.527298868 +0000
 @@ -1,11 +1,11 @@
 -./sdriver.pl -t trace16.txt -s ./tshref -a "-p"
 +./sdriver.pl -t trace16.txt -s ./tsh -a "-p"
@@ -398,13 +398,13 @@ Comparing rtest16.txt and test16.txt:
  #     signals that come from other processes instead of the terminal.
  #
  tsh> ./mystop 2
--Job [1] (40166) stopped by signal 20
-+Job [1] (40404) stopped by signal 20
+-Job [1] (43805) stopped by signal 20
++Job [1] (49157) stopped by signal 20
  tsh> jobs
--[1] (40166) Stopped ./mystop 2
-+[1] (40404) Stopped ./mystop 2
+-[1] (43805) Stopped ./mystop 2
++[1] (49157) Stopped ./mystop 2
  tsh> ./myint 2
--Job [2] (40169) terminated by signal 2
-+Job [2] (40410) terminated by signal 2
+-Job [2] (43811) terminated by signal 2
++Job [2] (49175) terminated by signal 2
 ----------------------------------------
 

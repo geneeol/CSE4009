@@ -3,17 +3,17 @@
 # trace11.txt - Forward SIGINT to every process in foreground process group
 #
 tsh> ./mysplit 4
-Job [1] (40324) terminated by signal 2
+Job [1] (49024) terminated by signal 2
 tsh> /bin/ps a
     PID TTY      STAT   TIME COMMAND
     391 ttyS0    Ss+    0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 ttyS0 vt220
     393 tty1     Ss+    0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
   29857 pts/0    Ss+    0:00 -bash
   29912 pts/1    Ss+    0:00 -bash
-  30389 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
-  40202 pts/2    S+     0:00 sh gen_test.sh
-  40319 pts/2    S+     0:00 make test11
-  40320 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace11.txt -s ./tsh -a "-p"
-  40321 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace11.txt -s ./tsh -a -p
-  40322 pts/2    S+     0:00 ./tsh -p
-  40327 pts/2    R      0:00 /bin/ps a
+  42807 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
+  48801 pts/2    S+     0:00 sh gen_test.sh
+  49019 pts/2    S+     0:00 make test11
+  49020 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace11.txt -s ./tsh -a "-p"
+  49021 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace11.txt -s ./tsh -a -p
+  49022 pts/2    S+     0:00 ./tsh -p
+  49033 pts/2    R      0:00 /bin/ps a

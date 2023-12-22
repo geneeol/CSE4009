@@ -3,24 +3,24 @@
 # trace13.txt - Restart every stopped process in process group
 #
 tsh> ./mysplit 4
-Job [1] (40105) stopped by signal 20
+Job [1] (43744) stopped by signal 20
 tsh> jobs
-[1] (40105) Stopped ./mysplit 4 
+[1] (43744) Stopped ./mysplit 4 
 tsh> /bin/ps a
     PID TTY      STAT   TIME COMMAND
     391 ttyS0    Ss+    0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 ttyS0 vt220
     393 tty1     Ss+    0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
   29857 pts/0    Ss+    0:00 -bash
   29912 pts/1    Ss+    0:00 -bash
-  30389 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
-  39942 pts/2    S+     0:00 sh gen_rtest.sh
-  40100 pts/2    S+     0:00 make rtest13
-  40101 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tshref -a "-p"
-  40102 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tshref -a -p
-  40103 pts/2    S+     0:00 ./tshref -p
-  40105 pts/2    T      0:00 ./mysplit 4
-  40106 pts/2    T      0:00 ./mysplit 4
-  40112 pts/2    R      0:00 /bin/ps a
+  42807 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
+  43583 pts/2    S+     0:00 sh gen_rtest.sh
+  43739 pts/2    S+     0:00 make rtest13
+  43740 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tshref -a "-p"
+  43741 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tshref -a -p
+  43742 pts/2    S+     0:00 ./tshref -p
+  43744 pts/2    T      0:00 ./mysplit 4
+  43745 pts/2    T      0:00 ./mysplit 4
+  43751 pts/2    R      0:00 /bin/ps a
 tsh> fg %1
 tsh> /bin/ps a
     PID TTY      STAT   TIME COMMAND
@@ -28,10 +28,10 @@ tsh> /bin/ps a
     393 tty1     Ss+    0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
   29857 pts/0    Ss+    0:00 -bash
   29912 pts/1    Ss+    0:00 -bash
-  30389 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
-  39942 pts/2    S+     0:00 sh gen_rtest.sh
-  40100 pts/2    S+     0:00 make rtest13
-  40101 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tshref -a "-p"
-  40102 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tshref -a -p
-  40103 pts/2    S+     0:00 ./tshref -p
-  40115 pts/2    R      0:00 /bin/ps a
+  42807 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
+  43583 pts/2    S+     0:00 sh gen_rtest.sh
+  43739 pts/2    S+     0:00 make rtest13
+  43740 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tshref -a "-p"
+  43741 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tshref -a -p
+  43742 pts/2    S+     0:00 ./tshref -p
+  43754 pts/2    R      0:00 /bin/ps a
