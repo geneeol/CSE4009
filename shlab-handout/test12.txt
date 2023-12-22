@@ -3,19 +3,21 @@
 # trace12.txt - Forward SIGTSTP to every process in foreground process group
 #
 tsh> ./mysplit 4
-Job [1] (28593) stopped by signal 20
+Job [1] (40333) stopped by signal 20
 tsh> jobs
-[1] (28593) Stopped ./mysplit 4 
+[1] (40333) Stopped ./mysplit 4 
 tsh> /bin/ps a
     PID TTY      STAT   TIME COMMAND
     391 ttyS0    Ss+    0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,57600,38400,9600 ttyS0 vt220
     393 tty1     Ss+    0:00 /sbin/agetty -o -p -- \u --noclear tty1 linux
-  26196 pts/0    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
-  28424 pts/0    S+     0:00 sh gen_test.sh
-  28588 pts/0    S+     0:00 make test12
-  28589 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace12.txt -s ./tsh -a "-p"
-  28590 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace12.txt -s ./tsh -a -p
-  28591 pts/0    S+     0:00 ./tsh -p
-  28593 pts/0    T      0:00 ./mysplit 4
-  28594 pts/0    T      0:00 ./mysplit 4
-  28597 pts/0    R      0:00 /bin/ps a
+  29857 pts/0    Ss+    0:00 -bash
+  29912 pts/1    Ss+    0:00 -bash
+  30389 pts/2    Ss     0:00 /bin/bash --init-file /home/ubuntu/.vscode-server/bin/1a5daa3a0231a0fbba4f14db7ec463cf99d7768e/out/vs/workbench/contrib/terminal/browser/media/shellIntegration-bash.sh
+  40202 pts/2    S+     0:00 sh gen_test.sh
+  40328 pts/2    S+     0:00 make test12
+  40329 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace12.txt -s ./tsh -a "-p"
+  40330 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t trace12.txt -s ./tsh -a -p
+  40331 pts/2    S+     0:00 ./tsh -p
+  40333 pts/2    T      0:00 ./mysplit 4
+  40334 pts/2    T      0:00 ./mysplit 4
+  40337 pts/2    R      0:00 /bin/ps a

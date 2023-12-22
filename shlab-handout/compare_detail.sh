@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # File to store the output
-output_file="comparison_results.txt"
+output_file="comparison_detail_results.txt"
 
 # Clear the contents of the output file if it exists, or create it if it doesn't
 > "$output_file"
@@ -13,8 +13,8 @@ do
    echo "Comparing rtest$i.txt and test$i.txt:" >> "$output_file"
 
    # Append the differences to the output file
-   diff -y --suppress-common-lines rtest$i.txt test$i.txt >> "$output_file"
-   # diff -u rtest$i.txt test$i.txt >> "$output_file"
+   # diff -y --suppress-common-lines rtest$i.txt test$i.txt >> "$output_file"
+   diff -u rtest$i.txt test$i.txt >> "$output_file"
 
    # Append a separator
    echo "----------------------------------------\n" >> "$output_file"

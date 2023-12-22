@@ -190,10 +190,11 @@ void eval(char *cmdline)
         if ((pid = fork()) == 0)
         {
             sigprocmask(SIG_SETMASK, &prev_one, NULL);
+            // pgid 분리
             setpgid(0, 0);
             if (execve(argv[0], argv, environ) < 0)
             {
-                printf("%s: Command not found.\n", argv[0]);
+                printf("%s: Command not found\n", argv[0]);
                 exit(0);
             }
         }
@@ -303,7 +304,67 @@ int builtin_cmd(char **argv)
  */
 void do_bgfg(char **argv) 
 {
+    struct job_t *job;
+    int jid;
+    pid_t pid;
+    char *arg1 = argv[1];
+    sigset_t mask_all, mask_one, prev_one;
+
+    sigfillset(&mask_all);
+    // sigemptyset(&mask_one);
+    // sigaddset(&mask_one, SIGCHLD);
     
+    //TODO: signal mask 고려
+    if (arg1 == NULL)
+    {
+        // fg command requires PID or %jobid argument
+        printf("%s command requires PID or %%jobid argument\n", argv[0]);
+        return;
+    }
+    if (arg1[0] == '%')
+    {
+        jid = atoi(&arg1[1]);
+        job = getjobjid(jobs, jid);
+        if (!job)
+        {
+            printf("%s: No such job\n", argv[1]);
+            return ;
+        }
+        pid = job->pid;
+    }
+    else if (isdigit(arg1[0]))
+    {
+        pid = atoi(arg1);
+        job = getjobpid(jobs, pid);
+        if (!job)
+        {
+            printf("(%s): No such process\n", argv[1]);
+            return ;
+        }
+    }
+    else
+    {
+        // fg: argument must be a PID or %jobid
+        printf("%s: argument must be a PID or %%jobid\n", argv[0]);
+        return;
+    }
+    if (strcmp(argv[0], "bg") == 0)
+    {
+        job->state = BG;
+        kill(-job->pid, SIGCONT);
+        // [1] (35589) ./myspin 10 &
+        printf("[%d] (%d) %s", job->jid, job->pid, job->cmdline);
+    }
+    if (strcmp(argv[0], "fg") == 0)
+    {
+        job->state = FG;
+        kill(-job->pid, SIGCONT);
+        // TODO: suspend로 수정
+        while (pid == fgpid(jobs))
+            ;
+        // sigsuspend(&prev_one);
+    }
+
     return;
 }
 
@@ -342,6 +403,7 @@ void sigchld_handler(int sig)
             deletejob(jobs, pid);
         else if (WIFSIGNALED(stat))
         {
+            // Job [1] (26758) terminated by signal 2 
             printf("Job [%d] (%d) terminated by signal %d\n", pid2jid(pid), pid, WTERMSIG(stat));
             deletejob(jobs, pid);
         }
@@ -365,7 +427,9 @@ void sigint_handler(int sig)
     int old_errno = errno;
     pid_t pid = fgpid(jobs);
 
+    // foreground job은 무조건 하나인듯
     if (pid != 0)
+    // signal safe한 함수
         kill(-pid, SIGINT);
     errno = old_errno;
 }

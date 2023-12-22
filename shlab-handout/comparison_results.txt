@@ -12,141 +12,127 @@ Comparing rtest03.txt and test03.txt:
 
 Comparing rtest04.txt and test04.txt:
 ./sdriver.pl -t trace04.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace04.txt -s ./tsh -a "-p"
-[1] (26652) ./myspin 1 &				      |	[1] (28444) ./myspin 1 &
+[1] (39962) ./myspin 1 &				      |	[1] (40222) ./myspin 1 &
 ----------------------------------------
 
 Comparing rtest05.txt and test05.txt:
 ./sdriver.pl -t trace05.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace05.txt -s ./tsh -a "-p"
-[1] (26716) ./myspin 2 &				      |	[1] (28464) ./myspin 2 &
-[2] (26718) ./myspin 3 &				      |	[2] (28466) ./myspin 3 &
-[1] (26716) Running ./myspin 2 &			      |	[1] (28464) Running ./myspin 2 &
-[2] (26718) Running ./myspin 3 &			      |	[2] (28466) Running ./myspin 3 &
+[1] (39982) ./myspin 2 &				      |	[1] (40228) ./myspin 2 &
+[2] (39984) ./myspin 3 &				      |	[2] (40230) ./myspin 3 &
+[1] (39982) Running ./myspin 2 &			      |	[1] (40228) Running ./myspin 2 &
+[2] (39984) Running ./myspin 3 &			      |	[2] (40230) Running ./myspin 3 &
 ----------------------------------------
 
 Comparing rtest06.txt and test06.txt:
 ./sdriver.pl -t trace06.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace06.txt -s ./tsh -a "-p"
-Job [1] (26758) terminated by signal 2			      |	Job [1] (28512) terminated by signal 2
+Job [1] (40004) terminated by signal 2			      |	Job [1] (40267) terminated by signal 2
 ----------------------------------------
 
 Comparing rtest07.txt and test07.txt:
 ./sdriver.pl -t trace07.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace07.txt -s ./tsh -a "-p"
-[1] (26792) ./myspin 4 &				      |	[1] (28523) ./myspin 4 &
-Job [2] (26794) terminated by signal 2			      |	Job [2] (28525) terminated by signal 2
-[1] (26792) Running ./myspin 4 &			      |	[1] (28523) Running ./myspin 4 &
+[1] (40025) ./myspin 4 &				      |	[1] (40273) ./myspin 4 &
+Job [2] (40027) terminated by signal 2			      |	Job [2] (40275) terminated by signal 2
+[1] (40025) Running ./myspin 4 &			      |	[1] (40273) Running ./myspin 4 &
 ----------------------------------------
 
 Comparing rtest08.txt and test08.txt:
 ./sdriver.pl -t trace08.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace08.txt -s ./tsh -a "-p"
-[1] (27207) ./myspin 4 &				      |	[1] (28543) ./myspin 4 &
-Job [2] (27209) stopped by signal 20			      |	Job [2] (28545) stopped by signal 20
-[1] (27207) Running ./myspin 4 &			      |	[1] (28543) Running ./myspin 4 &
-[2] (27209) Stopped ./myspin 5 				      |	[2] (28545) Stopped ./myspin 5 
+[1] (40047) ./myspin 4 &				      |	[1] (40285) ./myspin 4 &
+Job [2] (40049) stopped by signal 20			      |	Job [2] (40287) stopped by signal 20
+[1] (40047) Running ./myspin 4 &			      |	[1] (40285) Running ./myspin 4 &
+[2] (40049) Stopped ./myspin 5 				      |	[2] (40287) Stopped ./myspin 5 
 ----------------------------------------
 
 Comparing rtest09.txt and test09.txt:
 ./sdriver.pl -t trace09.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace09.txt -s ./tsh -a "-p"
-[1] (27306) ./myspin 4 &				      |	[1] (28555) ./myspin 4 &
-Job [2] (27308) stopped by signal 20			      |	Job [2] (28557) stopped by signal 20
-[1] (27306) Running ./myspin 4 &			      |	[1] (28555) Running ./myspin 4 &
-[2] (27308) Stopped ./myspin 5 				      |	[2] (28557) Stopped ./myspin 5 
-[2] (27308) ./myspin 5 					      <
-[1] (27306) Running ./myspin 4 &			      |	[1] (28555) Running ./myspin 4 &
-[2] (27308) Running ./myspin 5 				      |	[2] (28557) Stopped ./myspin 5 
+[1] (40059) ./myspin 4 &				      |	[1] (40297) ./myspin 4 &
+Job [2] (40061) stopped by signal 20			      |	Job [2] (40299) stopped by signal 20
+[1] (40059) Running ./myspin 4 &			      |	[1] (40297) Running ./myspin 4 &
+[2] (40061) Stopped ./myspin 5 				      |	[2] (40299) Stopped ./myspin 5 
+[2] (40061) ./myspin 5 					      |	[2] (40299) ./myspin 5 
+[1] (40059) Running ./myspin 4 &			      |	[1] (40297) Running ./myspin 4 &
+[2] (40061) Running ./myspin 5 				      |	[2] (40299) Running ./myspin 5 
 ----------------------------------------
 
 Comparing rtest10.txt and test10.txt:
 ./sdriver.pl -t trace10.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace10.txt -s ./tsh -a "-p"
-[1] (27383) ./myspin 4 &				      |	[1] (28567) ./myspin 4 &
-Job [1] (27383) stopped by signal 20			      <
-[1] (27383) Stopped ./myspin 4 &			      |	[1] (28567) Running ./myspin 4 &
-							      >	[1] (28567) Running ./myspin 4 &
+[1] (40073) ./myspin 4 &				      |	[1] (40311) ./myspin 4 &
+Job [1] (40073) stopped by signal 20			      |	Job [1] (40311) stopped by signal 20
+[1] (40073) Stopped ./myspin 4 &			      |	[1] (40311) Stopped ./myspin 4 &
 ----------------------------------------
 
 Comparing rtest11.txt and test11.txt:
 ./sdriver.pl -t trace11.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace11.txt -s ./tsh -a "-p"
-Job [1] (27805) terminated by signal 2			      |	Job [1] (28581) terminated by signal 2
-  27800 pts/0    S+     0:00 make rtest11		      |	  28424 pts/0    S+     0:00 sh gen_test.sh
-  27801 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace |	  28576 pts/0    S+     0:00 make test11
-  27802 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr |	  28577 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace
-  27803 pts/0    S+     0:00 ./tshref -p		      |	  28578 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr
-  27823 pts/0    R      0:00 /bin/ps a			      |	  28579 pts/0    S+     0:00 ./tsh -p
-							      >	  28587 pts/0    R      0:00 /bin/ps a
+Job [1] (40083) terminated by signal 2			      |	Job [1] (40324) terminated by signal 2
+  39942 pts/2    S+     0:00 sh gen_rtest.sh		      |	  40202 pts/2    S+     0:00 sh gen_test.sh
+  40078 pts/2    S+     0:00 make rtest11		      |	  40319 pts/2    S+     0:00 make test11
+  40079 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace |	  40320 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace
+  40080 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr |	  40321 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr
+  40081 pts/2    S+     0:00 ./tshref -p		      |	  40322 pts/2    S+     0:00 ./tsh -p
+  40089 pts/2    R      0:00 /bin/ps a			      |	  40327 pts/2    R      0:00 /bin/ps a
 ----------------------------------------
 
 Comparing rtest12.txt and test12.txt:
 ./sdriver.pl -t trace12.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace12.txt -s ./tsh -a "-p"
-Job [1] (27875) stopped by signal 20			      |	Job [1] (28593) stopped by signal 20
-[1] (27875) Stopped ./mysplit 4 			      |	[1] (28593) Stopped ./mysplit 4 
-  27868 pts/0    S+     0:00 make rtest12		      |	  28424 pts/0    S+     0:00 sh gen_test.sh
-  27870 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace |	  28588 pts/0    S+     0:00 make test12
-  27871 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr |	  28589 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace
-  27873 pts/0    S+     0:00 ./tshref -p		      |	  28590 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr
-  27875 pts/0    T      0:00 ./mysplit 4		      |	  28591 pts/0    S+     0:00 ./tsh -p
-  27876 pts/0    T      0:00 ./mysplit 4		      |	  28593 pts/0    T      0:00 ./mysplit 4
-  27930 pts/0    R      0:00 /bin/ps a			      |	  28594 pts/0    T      0:00 ./mysplit 4
-							      >	  28597 pts/0    R      0:00 /bin/ps a
+Job [1] (40095) stopped by signal 20			      |	Job [1] (40333) stopped by signal 20
+[1] (40095) Stopped ./mysplit 4 			      |	[1] (40333) Stopped ./mysplit 4 
+  39942 pts/2    S+     0:00 sh gen_rtest.sh		      |	  40202 pts/2    S+     0:00 sh gen_test.sh
+  40090 pts/2    S+     0:00 make rtest12		      |	  40328 pts/2    S+     0:00 make test12
+  40091 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace |	  40329 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace
+  40092 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr |	  40330 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr
+  40093 pts/2    S+     0:00 ./tshref -p		      |	  40331 pts/2    S+     0:00 ./tsh -p
+  40095 pts/2    T      0:00 ./mysplit 4		      |	  40333 pts/2    T      0:00 ./mysplit 4
+  40096 pts/2    T      0:00 ./mysplit 4		      |	  40334 pts/2    T      0:00 ./mysplit 4
+  40099 pts/2    R      0:00 /bin/ps a			      |	  40337 pts/2    R      0:00 /bin/ps a
 ----------------------------------------
 
 Comparing rtest13.txt and test13.txt:
 ./sdriver.pl -t trace13.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace13.txt -s ./tsh -a "-p"
-Job [1] (27988) stopped by signal 20			      |	Job [1] (28603) stopped by signal 20
-[1] (27988) Stopped ./mysplit 4 			      |	[1] (28603) Stopped ./mysplit 4 
-  27983 pts/0    S+     0:00 make rtest13		      |	  28424 pts/0    S+     0:00 sh gen_test.sh
-  27984 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace |	  28598 pts/0    S+     0:00 make test13
-  27985 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr |	  28599 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace
-  27986 pts/0    S+     0:00 ./tshref -p		      |	  28600 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr
-  27988 pts/0    T      0:00 ./mysplit 4		      |	  28601 pts/0    S+     0:00 ./tsh -p
-  27989 pts/0    T      0:00 ./mysplit 4		      |	  28603 pts/0    T      0:00 ./mysplit 4
-  28026 pts/0    R      0:00 /bin/ps a			      |	  28604 pts/0    T      0:00 ./mysplit 4
-							      >	  28607 pts/0    R      0:00 /bin/ps a
-  27983 pts/0    S+     0:00 make rtest13		      |	  28424 pts/0    S+     0:00 sh gen_test.sh
-  27984 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace |	  28598 pts/0    S+     0:00 make test13
-  27985 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr |	  28599 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -t trace
-  27986 pts/0    S+     0:00 ./tshref -p		      |	  28600 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr
-  28029 pts/0    R      0:00 /bin/ps a			      |	  28601 pts/0    S+     0:00 ./tsh -p
-							      >	  28603 pts/0    T      0:00 ./mysplit 4
-							      >	  28604 pts/0    T      0:00 ./mysplit 4
-							      >	  28610 pts/0    R      0:00 /bin/ps a
+Job [1] (40105) stopped by signal 20			      |	Job [1] (40343) stopped by signal 20
+[1] (40105) Stopped ./mysplit 4 			      |	[1] (40343) Stopped ./mysplit 4 
+  39942 pts/2    S+     0:00 sh gen_rtest.sh		      |	  40202 pts/2    S+     0:00 sh gen_test.sh
+  40100 pts/2    S+     0:00 make rtest13		      |	  40338 pts/2    S+     0:00 make test13
+  40101 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace |	  40339 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace
+  40102 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr |	  40340 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr
+  40103 pts/2    S+     0:00 ./tshref -p		      |	  40341 pts/2    S+     0:00 ./tsh -p
+  40105 pts/2    T      0:00 ./mysplit 4		      |	  40343 pts/2    T      0:00 ./mysplit 4
+  40106 pts/2    T      0:00 ./mysplit 4		      |	  40344 pts/2    T      0:00 ./mysplit 4
+  40112 pts/2    R      0:00 /bin/ps a			      |	  40350 pts/2    R      0:00 /bin/ps a
+  39942 pts/2    S+     0:00 sh gen_rtest.sh		      |	  40202 pts/2    S+     0:00 sh gen_test.sh
+  40100 pts/2    S+     0:00 make rtest13		      |	  40338 pts/2    S+     0:00 make test13
+  40101 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace |	  40339 pts/2    S+     0:00 /bin/sh -c ./sdriver.pl -t trace
+  40102 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr |	  40340 pts/2    S+     0:00 /usr/bin/perl ./sdriver.pl -t tr
+  40103 pts/2    S+     0:00 ./tshref -p		      |	  40341 pts/2    S+     0:02 ./tsh -p
+  40115 pts/2    R      0:00 /bin/ps a			      |	  40353 pts/2    R      0:00 /bin/ps a
 ----------------------------------------
 
 Comparing rtest14.txt and test14.txt:
 ./sdriver.pl -t trace14.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace14.txt -s ./tsh -a "-p"
-./bogus: Command not found				      |	./bogus: Command not found.
-[1] (28054) ./myspin 4 &				      |	[1] (28618) ./myspin 4 &
-fg command requires PID or %jobid argument		      <
-bg command requires PID or %jobid argument		      <
-fg: argument must be a PID or %jobid			      <
-bg: argument must be a PID or %jobid			      <
-(9999999): No such process				      <
-(9999999): No such process				      <
-%2: No such job						      <
-Job [1] (28054) stopped by signal 20			      <
-%2: No such job						      <
-[1] (28054) ./myspin 4 &				      <
-[1] (28054) Running ./myspin 4 &			      |	[1] (28618) Running ./myspin 4 &
+[1] (40123) ./myspin 4 &				      |	[1] (40361) ./myspin 4 &
+Job [1] (40123) stopped by signal 20			      |	Job [1] (40361) stopped by signal 20
+[1] (40123) ./myspin 4 &				      |	[1] (40361) ./myspin 4 &
+[1] (40123) Running ./myspin 4 &			      |	[1] (40361) Running ./myspin 4 &
 ----------------------------------------
 
 Comparing rtest15.txt and test15.txt:
 ./sdriver.pl -t trace15.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace15.txt -s ./tsh -a "-p"
-./bogus: Command not found				      |	./bogus: Command not found.
-Job [1] (28121) terminated by signal 2			      |	Job [1] (28640) terminated by signal 2
-[1] (28138) ./myspin 3 &				      |	[1] (28645) ./myspin 3 &
-[2] (28140) ./myspin 4 &				      |	[2] (28647) ./myspin 4 &
-[1] (28138) Running ./myspin 3 &			      |	[1] (28645) Running ./myspin 3 &
-[2] (28140) Running ./myspin 4 &			      |	[2] (28647) Running ./myspin 4 &
-Job [1] (28138) stopped by signal 20			      <
-[1] (28138) Stopped ./myspin 3 &			      |	[1] (28645) Running ./myspin 3 &
-[2] (28140) Running ./myspin 4 &			      |	[2] (28647) Running ./myspin 4 &
-%3: No such job						      <
-[1] (28138) ./myspin 3 &				      <
-[1] (28138) Running ./myspin 3 &			      |	[1] (28645) Running ./myspin 3 &
-[2] (28140) Running ./myspin 4 &			      |	[2] (28647) Running ./myspin 4 &
+Job [1] (40145) terminated by signal 2			      |	Job [1] (40383) terminated by signal 2
+[1] (40147) ./myspin 3 &				      |	[1] (40385) ./myspin 3 &
+[2] (40149) ./myspin 4 &				      |	[2] (40387) ./myspin 4 &
+[1] (40147) Running ./myspin 3 &			      |	[1] (40385) Running ./myspin 3 &
+[2] (40149) Running ./myspin 4 &			      |	[2] (40387) Running ./myspin 4 &
+Job [1] (40147) stopped by signal 20			      |	Job [1] (40385) stopped by signal 20
+[1] (40147) Stopped ./myspin 3 &			      |	[1] (40385) Stopped ./myspin 3 &
+[2] (40149) Running ./myspin 4 &			      |	[2] (40387) Running ./myspin 4 &
+[1] (40147) ./myspin 3 &				      |	[1] (40385) ./myspin 3 &
+[1] (40147) Running ./myspin 3 &			      |	[1] (40385) Running ./myspin 3 &
+[2] (40149) Running ./myspin 4 &			      |	[2] (40387) Running ./myspin 4 &
 ----------------------------------------
 
 Comparing rtest16.txt and test16.txt:
 ./sdriver.pl -t trace16.txt -s ./tshref -a "-p"		      |	./sdriver.pl -t trace16.txt -s ./tsh -a "-p"
-Job [1] (28174) stopped by signal 20			      |	Job [1] (28661) stopped by signal 20
-[1] (28174) Stopped ./mystop 2				      |	[1] (28661) Stopped ./mystop 2
-Job [2] (28205) terminated by signal 2			      |	Job [2] (28667) terminated by signal 2
+Job [1] (40166) stopped by signal 20			      |	Job [1] (40404) stopped by signal 20
+[1] (40166) Stopped ./mystop 2				      |	[1] (40404) Stopped ./mystop 2
+Job [2] (40169) terminated by signal 2			      |	Job [2] (40410) terminated by signal 2
 ----------------------------------------
 

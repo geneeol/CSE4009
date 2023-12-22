@@ -3,9 +3,9 @@
 # trace08.txt - Forward SIGTSTP only to foreground job.
 #
 tsh> ./myspin 4 &
-[1] (27207) ./myspin 4 &
+[1] (40047) ./myspin 4 &
 tsh> ./myspin 5
-Job [2] (27209) stopped by signal 20
+Job [2] (40049) stopped by signal 20
 tsh> jobs
-[1] (27207) Running ./myspin 4 &
-[2] (27209) Stopped ./myspin 5 
+[1] (40047) Running ./myspin 4 &
+[2] (40049) Stopped ./myspin 5 
