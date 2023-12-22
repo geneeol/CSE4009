@@ -185,7 +185,6 @@ void eval(char *cmdline)
     
     if (!builtin_cmd(argv))
     {
-        // TODO: 시그널 블락
         sigprocmask(SIG_BLOCK, &mask_one, &prev_one);
         if ((pid = fork()) == 0)
         {
@@ -362,7 +361,6 @@ void do_bgfg(char **argv)
         // TODO: suspend로 수정
         while (pid == fgpid(jobs))
             ;
-        // sigsuspend(&prev_one);
     }
 
     return;
