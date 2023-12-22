@@ -1,0 +1,20 @@
+./sdriver.pl -t trace14.txt -s ./tsh -a "-p"
+#
+# trace14.txt - Simple error handling
+#
+tsh> ./bogus
+./bogus: Command not found.
+tsh> ./myspin 4 &
+[1] (28618) ./myspin 4 &
+tsh> fg
+tsh> bg
+tsh> fg a
+tsh> bg a
+tsh> fg 9999999
+tsh> bg 9999999
+tsh> fg %2
+tsh> fg %1
+tsh> bg %2
+tsh> bg %1
+tsh> jobs
+[1] (28618) Running ./myspin 4 &

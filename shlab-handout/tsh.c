@@ -212,6 +212,7 @@ void eval(char *cmdline)
         {
             addjob(jobs, pid, BG, cmdline);
             sigprocmask(SIG_SETMASK, &prev_one, NULL);
+            // [1] (29336) ./myspin 1 & 
             printf("[%d] (%d) %s", pid2jid(pid), pid, cmdline);
         }
     }
@@ -338,9 +339,7 @@ void sigchld_handler(int sig)
     {
         sigprocmask(SIG_BLOCK, &mask_all, &prev_all);
         if (WIFEXITED(stat))
-        {
             deletejob(jobs, pid);
-        }
         else if (WIFSIGNALED(stat))
         {
             printf("Job [%d] (%d) terminated by signal %d\n", pid2jid(pid), pid, WTERMSIG(stat));
@@ -384,7 +383,6 @@ void sigtstp_handler(int sig)
 
     sigfillset(&mask_all);
     sigprocmask(SIG_BLOCK, &mask_all, &prev);
-
     if (pid != 0)
         kill(-pid, SIGTSTP);
     sigprocmask(SIG_SETMASK, &prev, NULL);
