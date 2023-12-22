@@ -307,9 +307,9 @@ void do_bgfg(char **argv)
     int jid;
     pid_t pid;
     char *arg1 = argv[1];
-    sigset_t mask_all, mask_one, prev_one;
+    // sigset_t mask_all, mask_one, prev_one;
 
-    sigfillset(&mask_all);
+    // sigfillset(&mask_all);
     // sigemptyset(&mask_one);
     // sigaddset(&mask_one, SIGCHLD);
     
